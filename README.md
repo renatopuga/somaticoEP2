@@ -26,6 +26,15 @@ wget -c  https://storage.googleapis.com/gatk-best-practices/somatic-b37/af-only-
 wget -c  https://storage.googleapis.com/gatk-best-practices/somatic-b37/af-only-gnomad.raw.sites.vcf.idx
 ```
 
+> Arquivo no formato FASTA do genoma humano hg19
+
+Diretório Download UCSC hg19:https://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/
+chr9.fa.gz: https://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr9.fa.gz
+
+```bash
+wget -c https://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr9.fa.gz
+```
+
 ---
 
 # Adicionando chr nos VCFs do Gnomad e PoN
@@ -54,19 +63,29 @@ bgzip Mutect2-WGS-panel-b37.chr.vcf
 tabix -p vcf Mutect2-WGS-panel-b37.chr.vcf.gz
 ```
 
-
----
-
-
-
-> Arquivo no formato FASTA do genoma humano hg19
-
-Diretório Download UCSC hg19:https://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/
-chr9.fa.gz: https://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr9.fa.gz
+# GATK4 - Mutect Call (Refs hg19 com chr)
 
 ```bash
-wget -c https://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr9.fa.gz
+./gatk-4.2.2.0/gatk GetPileupSummaries \
+	-I WP312_sorted_rmdup.bam  \
+	-V af-only-gnomad.raw.sites.chr.vcf.gz  \
+	-L WP312_coverageBed20x.interval_list \
+	-O WP312.table
 ```
 
+```bash
+./gatk-4.2.2.0/gatk CalculateContamination \
+-I WP312.table \
+-O WP312.contamination.table
+```
 
-
+```bash
+./gatk-4.2.2.0/gatk Mutect2 \
+  -R chr9.fa \
+  -I WP312_sorted_rmdup.bam \
+  --germline-resource af-only-gnomad.raw.sites.chr.vcf.gz  \
+  --panel-of-normals Mutect2-WGS-panel-b37.chr.vcf.gz \
+  --disable-sequence-dictionary-validation \
+  -L WP312_coverageBed20x.interval_list \
+  -O WP312.somatic.pon.vcf.gz
+```
