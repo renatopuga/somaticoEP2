@@ -4,7 +4,7 @@ A amostras WP312 agora será executado com a versão do genoma humano HG19.
 A única parte que muda do EP1 é a das referências
 
 
-**AS Referências do Genoma hg38 (FASTA, VCFs)**
+**AS Referências do Genoma hg19 (FASTA, VCFs)**
 
 Os arquivos de Referência: **Panel of Normal (PoN), Gnomad AF**
 
