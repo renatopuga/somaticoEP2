@@ -8,7 +8,7 @@ A única parte que muda do EP1 é a das referências
 
 Os arquivos de Referência: **Panel of Normal (PoN), Gnomad AF**
 
-      * https://console.cloud.google.com/storage/browser/gatk-best-practices/somatic-b37?project=broad-dsde-outreach
+> https://console.cloud.google.com/storage/browser/gatk-best-practices/somatic-b37?project=broad-dsde-outreach
 
       ```bash
       wget -c https://storage.googleapis.com/gatk-best-practices/somatic-b37/Mutect2-WGS-panel-b37.vcf
@@ -27,7 +27,7 @@ Os arquivos de Referência: **Panel of Normal (PoN), Gnomad AF**
       ```
       
 
-* Arquivo no formato FASTA do genoma humano hg19
+> Arquivo no formato FASTA do genoma humano hg19
 
       1. Diretório Download UCSC hg19:https://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/
 
