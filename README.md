@@ -33,7 +33,7 @@ O arquivo `af-only-gnomad.raw.sites.vcf` (do bucket somatic-b37) não tem o `chr
 
 ```bash
 grep "\#" af-only-gnomad.raw.sites.vcf > af-only-gnomad.raw.sites.chr.vcf
-grep -v "^9" af-only-gnomad.raw.sites.vcf |  awk '{print("chr"$0)}' >> af-only-gnomad.raw.sites.chr.vcf
+grep  "^9" af-only-gnomad.raw.sites.vcf |  awk '{print("chr"$0)}' >> af-only-gnomad.raw.sites.chr.vcf
 ```
 
 ---
