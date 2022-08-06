@@ -36,6 +36,13 @@ grep "\#" af-only-gnomad.raw.sites.vcf > af-only-gnomad.raw.sites.chr.vcf
 grep  "^9" af-only-gnomad.raw.sites.vcf |  awk '{print("chr"$0)}' >> af-only-gnomad.raw.sites.chr.vcf
 ```
 
+**indexing**
+
+```bash
+bgzip af-only-gnomad.raw.sites.chr.vcf
+tabix -p vcf af-only-gnomad.raw.sites.chr.vcf.gz
+```
+
 ---
 
 
