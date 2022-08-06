@@ -79,6 +79,8 @@ tabix -p vcf Mutect2-WGS-panel-b37.chr.vcf.gz
 -O WP312.contamination.table
 ```
 
+**Cuidado:** Use esse parâmetro quando a referências for a correta, mas está fora da ordem os arquivos VCFs de referência utilizados `--disable-sequence-dictionary-validation`
+
 ```bash
 ./gatk-4.2.2.0/gatk Mutect2 \
   -R chr9.fa \
