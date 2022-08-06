@@ -28,7 +28,7 @@ wget -c  https://storage.googleapis.com/gatk-best-practices/somatic-b37/af-only-
 
 ---
 
-#Adicionando chr nos VCFs do Gnomad e PoN
+# Adicionando chr nos VCFs do Gnomad e PoN
 
 O arquivo `af-only-gnomad.raw.sites.vcf` (do bucket somatic-b37) não tem o `chr`na frente do nome do cromossomo. Precisamos adicionar para não gerar conflito de contigs de referência na hora de executar o GATK.
 
