@@ -8,7 +8,18 @@ Renato Puga
 ---
 # Roteiro Oficial - Completo
 
-# Tenho o arquivo .FASTQ?
+Se for utilizar o mesmo Workspace do EP1, crie um diretório chamado hg38 e mova tudo para dentro dele. Depois, comece do zero e siga as etapas.
+
+```bash
+mkdir hg38
+```
+
+```bash
+mv * hg38
+```
+> Um alerta de que o diretório hg38 não pode ser movido para dentro dele deve aparecer.
+
+## Tenho o arquivo .FASTQ?
 
 ## Não?
 
