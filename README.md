@@ -45,35 +45,6 @@ time parallel-fastq-dump --sra-id SRR8856724 \
 --gzip
 ```
 
-
----
-# Roteiro Oficial - Simples
-
-A amostras WP312 agora será executado com a versão do genoma humano HG19.
-A única parte que muda do EP1 é a das referências
-
-**AS Referências do Genoma hg19 (FASTA, VCFs)**
-
-Os arquivos de Referência: **Panel of Normal (PoN), Gnomad AF**
-
-> https://console.cloud.google.com/storage/browser/gatk-best-practices/somatic-b37?project=broad-dsde-outreach
-
-```bash
-wget -c https://storage.googleapis.com/gatk-best-practices/somatic-b37/Mutect2-WGS-panel-b37.vcf
-```
-
-```bash
-wget -c https://storage.googleapis.com/gatk-best-practices/somatic-b37/Mutect2-WGS-panel-b37.vcf.idx
-```
-
-```bash
-wget -c  https://storage.googleapis.com/gatk-best-practices/somatic-b37/af-only-gnomad.raw.sites.vcf
-```
-
-```bash
-wget -c  https://storage.googleapis.com/gatk-best-practices/somatic-b37/af-only-gnomad.raw.sites.vcf.idx
-```
-
 BWA para mapeamento dos arquivos FASTQ 
 
 ```
@@ -104,6 +75,36 @@ Combinar com pipes: bwa + samtools view e sort
 NOME=WP312; Biblioteca=Nextera; Plataforma=illumina;
 bwa mem -t 10 -M -R "@RG\tID:$NOME\tSM:$NOME\tLB:$Biblioteca\tPL:$Plataforma" chr9.fa SRR8856724_1.fastq.gz SRR8856724_2.fastq.gz | samtools view -F4 -Sbu -@2 - | samtools sort -m4G -@2 -o WP312_sorted.bam
 ```
+
+
+---
+# Roteiro Oficial - Simples
+
+A amostras WP312 agora será executado com a versão do genoma humano HG19.
+A única parte que muda do EP1 é a das referências
+
+**AS Referências do Genoma hg19 (FASTA, VCFs)**
+
+Os arquivos de Referência: **Panel of Normal (PoN), Gnomad AF**
+
+> https://console.cloud.google.com/storage/browser/gatk-best-practices/somatic-b37?project=broad-dsde-outreach
+
+```bash
+wget -c https://storage.googleapis.com/gatk-best-practices/somatic-b37/Mutect2-WGS-panel-b37.vcf
+```
+
+```bash
+wget -c https://storage.googleapis.com/gatk-best-practices/somatic-b37/Mutect2-WGS-panel-b37.vcf.idx
+```
+
+```bash
+wget -c  https://storage.googleapis.com/gatk-best-practices/somatic-b37/af-only-gnomad.raw.sites.vcf
+```
+
+```bash
+wget -c  https://storage.googleapis.com/gatk-best-practices/somatic-b37/af-only-gnomad.raw.sites.vcf.idx
+```
+
 
 > Arquivo no formato FASTA do genoma humano hg19
 
