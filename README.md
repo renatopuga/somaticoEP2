@@ -5,6 +5,39 @@ Lucas Cruz
 Nathalia Correa
 Renato Puga
 ```
+---
+# Roteiro Oficial - Completo
+
+# Tenho o arquivo .FASTQ?
+
+## Não?
+
+Instalar (sratoolskit) e fazer Download do arquivo WP312.
+
+```bash
+brew install sratoolkit
+```
+
+```bash
+pip install parallel-fastq-dump
+```
+
+```bash
+echo "Aexyo" | vdb-config -i
+```
+
+```bash
+time parallel-fastq-dump --sra-id SRR8856724 \
+--threads 4 \
+--outdir ./ \
+--split-files \
+--gzip
+```
+
+
+
+---
+# Roteiro Oficial - Simples
 
 A amostras WP312 agora será executado com a versão do genoma humano HG19.
 A única parte que muda do EP1 é a das referências
