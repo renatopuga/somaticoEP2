@@ -46,7 +46,6 @@ time parallel-fastq-dump --sra-id SRR8856724 \
 ```
 
 
-
 ---
 # Roteiro Oficial - Simples
 
@@ -73,6 +72,37 @@ wget -c  https://storage.googleapis.com/gatk-best-practices/somatic-b37/af-only-
 
 ```bash
 wget -c  https://storage.googleapis.com/gatk-best-practices/somatic-b37/af-only-gnomad.raw.sites.vcf.idx
+```
+
+BWA para mapeamento dos arquivos FASTQ 
+
+```
+brew install bwa 
+```
+
+BWA index do arquivo chr9.fa.gz
+
+```
+gunzip chr9.fa.gz
+```
+
+```
+bwa index chr9.fa
+```
+
+```
+brew install samtools 
+```
+
+```
+samtools faidx chr9.fa
+```
+
+Combinar com pipes: bwa + samtools view e sort
+
+```
+NOME=WP312; Biblioteca=Nextera; Plataforma=illumina;
+bwa mem -t 10 -M -R "@RG\tID:$NOME\tSM:$NOME\tLB:$Biblioteca\tPL:$Plataforma" chr9.fa SRR8856724_1.fastq.gz SRR8856724_2.fastq.gz | samtools view -F4 -Sbu -@2 - | samtools sort -m4G -@2 -o WP312_sorted.bam
 ```
 
 > Arquivo no formato FASTA do genoma humano hg19
