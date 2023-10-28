@@ -42,7 +42,7 @@ echo "Aexyo" | sratoolkit.3.0.0-ubuntu64/bin/vdb-config
 
 ```bash
 time parallel-fastq-dump --sra-id SRR8856724 \
---threads 4 \
+--threads 10 \
 --outdir ./ \
 --split-files \
 --gzip
