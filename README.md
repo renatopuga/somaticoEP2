@@ -43,7 +43,7 @@ tar -zxvf sratoolkit.3.0.0-ubuntu64.tar.gz
 export PATH=$PATH://workspace/somaticoEP2/sratoolkit.3.0.0-ubuntu64/bin/
 ```
 ```bash
-echo "Aexyo" | sratoolkit.3.0.0-ubuntu64/bin/vdb-config
+echo "Aexyo" | sratoolkit.3.0.0-ubuntu64/bin/vdb-config -i
 ```
 
 ```bash
