@@ -21,9 +21,6 @@ mv * hg38
 
 ## Tenho o arquivo .FASTQ?
 
-## Não?
-
-Instalar (sratoolskit) e fazer Download do arquivo WP312.
 
 ```bash
 brew install sratoolkit
