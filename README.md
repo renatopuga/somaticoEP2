@@ -87,6 +87,10 @@ Remover duplicata de PCR
 samtools rmdup WP312_sorted.bam WP312_sorted_rmdup.bam
 ```
 
+```bash
+samtools index WP312_sorted_rmdup.bam
+```
+
 
 
 ---
